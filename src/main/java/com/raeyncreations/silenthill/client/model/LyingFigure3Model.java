@@ -12,7 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 public class LyingFigure3Model extends HumanoidModel<LyingFigure3> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(JSilentHillMod.MODID, "lying_figure3"), "main");
 
-    public LyingFigure2Model(ModelPart root) {
+    public LyingFigure3Model(ModelPart root) {
         super(root);
     }
 
