@@ -28,15 +28,14 @@ public class BedrockAnimationParser {
         
         Map<String, BedrockAnimation> animations = new HashMap<>();
         
-        try {
-            InputStream stream = BedrockAnimationParser.class.getResourceAsStream(resourcePath);
+        try (InputStream stream = BedrockAnimationParser.class.getResourceAsStream(resourcePath)) {
             if (stream == null) {
                 System.err.println("Animation file not found: " + resourcePath);
                 return animations;
             }
             
-            InputStreamReader reader = new InputStreamReader(stream, StandardCharsets.UTF_8);
-            JsonObject root = GSON.fromJson(reader, JsonObject.class);
+            try (InputStreamReader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
+                JsonObject root = GSON.fromJson(reader, JsonObject.class);
             
             if (root == null || !root.has("animations")) {
                 System.err.println("Invalid animation file format: " + resourcePath);
@@ -58,9 +57,9 @@ public class BedrockAnimationParser {
                 }
             }
             
-            // Cache the results
-            ANIMATION_CACHE.put(resourcePath, animations);
-            
+                // Cache the results
+                ANIMATION_CACHE.put(resourcePath, animations);
+            }
         } catch (Exception e) {
             System.err.println("Error reading animation file '" + resourcePath + "': " + e.getMessage());
             e.printStackTrace();
@@ -171,8 +170,10 @@ public class BedrockAnimationParser {
                 // Handle MoLang expression
                 String expr = element.getAsString();
                 if (MoLangExpression.isMoLangExpression(expr)) {
+                    // Note: MoLang expressions are evaluated at parse time with time=0
+                    // Dynamic expressions will need runtime evaluation
                     MoLangExpression molang = new MoLangExpression(expr);
-                    values[i] = molang.evaluate(0); // Evaluate with time=0 for static value
+                    values[i] = molang.evaluate(0);
                 } else {
                     try {
                         values[i] = Float.parseFloat(expr);

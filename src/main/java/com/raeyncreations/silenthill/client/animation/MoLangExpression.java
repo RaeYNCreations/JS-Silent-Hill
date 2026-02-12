@@ -2,16 +2,16 @@ package com.raeyncreations.silenthill.client.animation;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Basic MoLang expression evaluator for animation values.
  * Supports math operations and query variables commonly used in Bedrock animations.
+ * Note: Does not support parentheses or complex operator precedence.
  */
 public class MoLangExpression {
-    private static final Random RANDOM = new Random();
     private static final Pattern FUNCTION_PATTERN = Pattern.compile("(Math\\.[a-z_]+|math\\.[a-z_]+)\\(([^)]+)\\)");
     private static final Pattern QUERY_PATTERN = Pattern.compile("query\\.([a-z_]+)");
     private static final Pattern VARIABLE_PATTERN = Pattern.compile("variable\\.([a-z_]+)");
@@ -134,7 +134,8 @@ public class MoLangExpression {
             case "math.round":
                 return Math.round(arg);
             case "math.random":
-                return RANDOM.nextFloat() * arg;
+                // Returns random value between 0 and arg
+                return ThreadLocalRandom.current().nextFloat() * arg;
             default:
                 return 0;
         }
@@ -164,6 +165,10 @@ public class MoLangExpression {
         // Handle addition and subtraction (lowest precedence)
         for (int i = expr.length() - 1; i >= 0; i--) {
             char c = expr.charAt(i);
+            // Skip if '-' is at start (negative number)
+            if (c == '-' && i == 0) {
+                continue;
+            }
             if ((c == '+' || c == '-') && i > 0) {
                 String left = expr.substring(0, i).trim();
                 String right = expr.substring(i + 1).trim();
