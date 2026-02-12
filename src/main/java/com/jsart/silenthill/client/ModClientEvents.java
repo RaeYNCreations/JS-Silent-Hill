@@ -20,6 +20,7 @@ public class ModClientEvents {
         event.registerEntityRenderer(ModEntities.LYING_FIGURE.get(), LyingFigureRenderer::new);
         event.registerEntityRenderer(ModEntities.CRYING_GIRL.get(), CryingGirlRenderer::new);
         event.registerEntityRenderer(ModEntities.STRAIGHTJACKET.get(), StraightjacketRenderer::new);
+        event.registerEntityRenderer(ModEntities.SILENT_HILL_CREEPER.get(), SilentHillCreeperRenderer::new);
     }
 
     @SubscribeEvent

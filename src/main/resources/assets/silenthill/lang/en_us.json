@@ -4,6 +4,7 @@
   "entity.silenthill.lyingfigure": "Lying Figure",
   "entity.silenthill.cryinggirl": "Crying Girl",
   "entity.silenthill.straightjacket": "Straightjacket",
+  "entity.silenthill.silenthill_creeper": "Silent Hill Creeper",
   
   "item.silenthill.silent_hill_axe": "Silent Hill Axe",
   "item.silenthill.pyramidhead_spawn_egg": "Pyramid Head Spawn Egg",
@@ -11,6 +12,7 @@
   "item.silenthill.lyingfigure_spawn_egg": "Lying Figure Spawn Egg",
   "item.silenthill.cryinggirl_spawn_egg": "Crying Girl Spawn Egg",
   "item.silenthill.straightjacket_spawn_egg": "Straightjacket Spawn Egg",
+  "item.silenthill.silenthill_creeper_spawn_egg": "Silent Hill Creeper Spawn Egg",
   
   "itemGroup.silenthill": "Silent Hill"
 }

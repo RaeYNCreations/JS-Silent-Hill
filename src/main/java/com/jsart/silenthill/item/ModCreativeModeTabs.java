@@ -29,6 +29,7 @@ public class ModCreativeModeTabs {
                     output.accept(ModSpawnEggs.LYING_FIGURE_SPAWN_EGG.get());
                     output.accept(ModSpawnEggs.CRYING_GIRL_SPAWN_EGG.get());
                     output.accept(ModSpawnEggs.STRAIGHTJACKET_SPAWN_EGG.get());
+                    output.accept(ModSpawnEggs.SILENT_HILL_CREEPER_SPAWN_EGG.get());
                 }).build());
 
     public static void register(IEventBus eventBus) {

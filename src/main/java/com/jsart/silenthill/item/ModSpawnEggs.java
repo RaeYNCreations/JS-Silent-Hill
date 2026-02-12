@@ -33,6 +33,10 @@ public class ModSpawnEggs {
         SPAWN_EGGS.register("straightjacket_spawn_egg", 
             () -> new DeferredSpawnEggItem(ModEntities.STRAIGHTJACKET, 0xFFFAF0, 0x8B8B83, new Item.Properties()));
 
+    public static final DeferredHolder<Item, DeferredSpawnEggItem> SILENT_HILL_CREEPER_SPAWN_EGG = 
+        SPAWN_EGGS.register("silenthill_creeper_spawn_egg", 
+            () -> new DeferredSpawnEggItem(ModEntities.SILENT_HILL_CREEPER, 0x0DA70B, 0x000000, new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         SPAWN_EGGS.register(eventBus);
     }
