@@ -1,0 +1,62 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:phantom",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:instant_despawn": {},
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 10 : 0"
+      },
+      "minecraft:movement": {
+        "value": 0.2
+      },
+      "minecraft:type_family": {},
+      "minecraft:scale": {
+        "value": 1
+      },
+      "minecraft:collision_box": {
+        "height": 0.5,
+        "width": 0.9
+      },
+      "minecraft:physics": {
+        "has_gravity": false
+      }
+    },
+    "events": {
+      "on:death": {
+        "queue_command": {}
+      },
+      "on:hurt": {
+        "queue_command": {}
+      },
+      "on:hurt_by_player": {
+        "queue_command": {}
+      },
+      "on:ignite": {
+        "queue_command": {}
+      },
+      "on:target_acquired": {
+        "queue_command": {}
+      },
+      "on:target_escape": {
+        "queue_command": {}
+      },
+      "on:wake_with_owner": {
+        "queue_command": {}
+      },
+      "on:tick_action": {
+        "queue_command": {}
+      }
+    },
+    "component_groups": {}
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "pa:creakingkanother",
+      "textures": {
+        "default": "textures/entity/pamobile/pa_creakingkanother"
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "geometry": {
+        "default": "geometry.pa_creakingkanother_default"
+      },
+      "render_controllers": [
+        "controller.render.translucence"
+      ],
+      "spawn_egg": {
+        "texture": "pa:creakingkanother_spawn_egg",
+        "texture_index": 0
+      },
+      "animations": {
+        "walk": "animation.pa_creakingkanother.walk",
+        "stand": "animation.pa_creakingkanother.",
+        "run": "animation.pa_creakingkanother.run",
+        "new1": "animation.pa_creakingkanother.new",
+        "new2": "animation.pa_creakingkanother.new2",
+        "new3": "animation.pa_creakingkanother.new3",
+        "new4": "animation.pa_creakingkanother.new4",
+        "new5": "animation.pa_creakingkanother.new5",
+        "fall": "animation.pa_creakingkanother.fall"
+      },
+      "scripts": {
+        "animate": [
+          "root",
+          {
+            "walk": "query.is_moving && query.modified_move_speed < 0.3"
+          },
+          {
+            "run": "query.modified_move_speed > 0.3"
+          },
+          {
+            "stand": "!query.is_moving"
+          }
+        ]
+      }
+    }
+  }
+}

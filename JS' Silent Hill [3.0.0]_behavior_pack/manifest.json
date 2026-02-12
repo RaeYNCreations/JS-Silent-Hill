@@ -1,0 +1,51 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Criaturas de Silent Hill irão invadir o seu mundo! by @ J.S.art",
+    "name": "JS' Silent Hill [3.0.0]",
+    "uuid": "a336fcc4-4bdf-4be9-b377-fc3a348f5edd",
+    "version": [
+      3,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "description": "Criaturas de Silent Hill irão invadir o seu mundo! by @ J.S.art",
+      "type": "data",
+      "uuid": "d2a10b97-4117-4f94-b4b0-e4a735b3f4a4",
+      "version": [
+        3,
+        0,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "0ce2b621-0efa-4e77-9c54-a3753d80962b",
+      "version": [
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "version": "1.14.0",
+      "module_name": "@minecraft/server"
+    },
+    {
+      "version": "1.3.0",
+      "module_name": "@minecraft/server-ui"
+    }
+  ],
+  "capabilities": [
+    "script_eval"
+  ]
+}

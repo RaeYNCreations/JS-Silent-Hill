@@ -1,0 +1,97 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:tree_feature": {
+    "description": {
+      "identifier": "minecraft:swamp_tree_feature"
+    },
+    "trunk": {
+      "trunk_height": {
+        "range_min": 0,
+        "range_max": 0
+      },
+      "trunk_block": "minecraft:oak_log",
+      "can_be_submerged": {
+        "max_depth": 2
+      }
+    },
+    "canopy": {
+      "canopy_decoration": {
+        "decoration_chance": {
+          "numerator": 1,
+          "denominator": 4
+        },
+        "decoration_block": "minecraft:vine",
+        "num_steps": 4.0,
+        "step_direction": "down"
+      },
+      "canopy_offset": {
+        "min": -3,
+        "max": 0
+      },
+      "leaf_block": "minecraft:oak_leaves",
+      "min_width": 2,
+      "variation_chance": [
+        {
+          "numerator": 1,
+          "denominator": 2
+        },
+        {
+          "numerator": 1,
+          "denominator": 2
+        },
+        {
+          "numerator": 1,
+          "denominator": 2
+        },
+        {
+          "numerator": 1,
+          "denominator": 1
+        }
+      ]
+    },
+    "may_grow_on": [
+      "minecraft:coarse_dirt",
+      "minecraft:dirt",
+      "minecraft:dirt_with_roots",
+      "minecraft:farmland",
+      "minecraft:grass_block",
+      "minecraft:moss_block",
+      "minecraft:mud",
+      "minecraft:muddy_mangrove_roots",
+      "minecraft:mycelium",
+      "minecraft:pale_moss_block",
+      "minecraft:podzol"
+    ],
+    "base_block": [
+      "minecraft:dirt",
+      "minecraft:coarse_dirt"
+    ],
+    "may_grow_through": [
+      "minecraft:coarse_dirt",
+      "minecraft:dirt",
+      "minecraft:dirt_with_roots",
+      "minecraft:farmland",
+      "minecraft:grass_block",
+      "minecraft:moss_block",
+      "minecraft:mud",
+      "minecraft:muddy_mangrove_roots",
+      "minecraft:mycelium",
+      "minecraft:pale_moss_block",
+      "minecraft:podzol"
+    ],
+    "may_replace": [
+      "minecraft:air",
+      "minecraft:snow_layer",
+      "minecraft:acacia_leaves",
+      "minecraft:cherry_leaves",
+      "minecraft:dark_oak_leaves",
+      "minecraft:jungle_leaves",
+      "minecraft:mangrove_leaves",
+      "minecraft:oak_leaves",
+      "minecraft:pale_oak_leaves",
+      "minecraft:spruce_leaves",
+      "minecraft:water",
+      "minecraft:flowing_water"
+    ]
+  }
+}

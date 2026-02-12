@@ -1,0 +1,176 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "jsart:victism16",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_surface": {},
+        "minecraft:brightness_filter": {
+          "min": 0.0,
+          "max": 7.0,
+          "adjust_for_weather": false
+        },
+        "minecraft:weight": {
+          "default": 2
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 1
+        },
+        "minecraft:density_limit": {
+          "surface": 8,
+          "underground": 8
+        },
+        "minecraft:biome_filter": [
+          {
+            "any_of": [
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "deep_dark"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "desert"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "forest"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "forest_hills"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "mutated"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "pale_garden"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "plateau"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "stone"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "swamp"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "taiga_hills"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "taiga_mutated"
+              }
+            ]
+          }
+        ],
+        "minecraft:height_filter": {
+          "min": -64.0,
+          "max": 60.0
+        }
+      },
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:brightness_filter": {
+          "min": 1,
+          "max": 15,
+          "adjust_for_weather": false
+        },
+        "minecraft:weight": {
+          "default": 2
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 1
+        },
+        "minecraft:density_limit": {
+          "surface": 8,
+          "underground": 8
+        },
+        "minecraft:biome_filter": [
+          {
+            "any_of": [
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "deep_dark"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "desert"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "forest"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "forest_hills"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "mutated"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "pale_garden"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "plateau"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "stone"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "swamp"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "taiga_hills"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "taiga_mutated"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

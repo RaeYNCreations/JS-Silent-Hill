@@ -1,0 +1,74 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:tree_feature": {
+    "description": {
+      "identifier": "minecraft:fancy_oak_tree_feature"
+    },
+    "fancy_trunk": {
+      "trunk_width": 2,
+      "trunk_height": {
+        "base": 20,
+        "variance": 20,
+        "scale": 2
+      },
+      "trunk_block": "minecraft:oak_log",
+      "branches": {
+        "slope": 1.0,
+        "density": 30.0,
+        "foliage_altitude_factor": 80.0
+      },
+      "width_scale": 2.0,
+      "foliage_altitude_factor": 10.0
+    },
+    "fancy_canopy": {
+      "height": 7,
+      "leaf_block": "minecraft:oak_leaves",
+      "radius": 6
+    },
+    "may_grow_on": [
+      "minecraft:coarse_dirt",
+      "minecraft:dirt",
+      "minecraft:dirt_with_roots",
+      "minecraft:farmland",
+      "minecraft:grass_block",
+      "minecraft:moss_block",
+      "minecraft:mud",
+      "minecraft:muddy_mangrove_roots",
+      "minecraft:mycelium",
+      "minecraft:pale_moss_block",
+      "minecraft:podzol"
+    ],
+    "base_block": [
+      "minecraft:dirt",
+      "minecraft:coarse_dirt"
+    ],
+    "may_grow_through": [
+      "minecraft:coarse_dirt",
+      "minecraft:dirt",
+      "minecraft:dirt_with_roots",
+      "minecraft:farmland",
+      "minecraft:grass_block",
+      "minecraft:moss_block",
+      "minecraft:mud",
+      "minecraft:muddy_mangrove_roots",
+      "minecraft:mycelium",
+      "minecraft:pale_moss_block",
+      "minecraft:podzol"
+    ],
+    "may_replace": [
+      "minecraft:air",
+      "minecraft:snow_layer",
+      "minecraft:acacia_leaves",
+      "minecraft:azalea_leaves",
+      "minecraft:azalea_leaves_flowered",
+      "minecraft:birch_leaves",
+      "minecraft:cherry_leaves",
+      "minecraft:dark_oak_leaves",
+      "minecraft:jungle_leaves",
+      "minecraft:mangrove_leaves",
+      "minecraft:oak_leaves",
+      "minecraft:pale_oak_leaves",
+      "minecraft:spruce_leaves"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Criaturas de Silent Hill irão invadir o seu mundo! by @ J.S.art",
+    "name": "JS' Silent Hill [3.0.0]",
+    "uuid": "0ce2b621-0efa-4e77-9c54-a3753d80962b",
+    "version": [
+      3,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "description": "Criaturas de Silent Hill irão invadir o seu mundo! by @ J.S.art",
+      "type": "resources",
+      "uuid": "7e1990ae-52c3-43dd-b0b5-ff2d17347900",
+      "version": [
+        3,
+        0,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "a336fcc4-4bdf-4be9-b377-fc3a348f5edd",
+      "version": [
+        3,
+        0,
+        0
+      ]
+    }
+  ]
+}
