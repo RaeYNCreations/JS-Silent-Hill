@@ -39,4 +39,9 @@ public class PaCreakingkModel extends HumanoidModel<PaCreakingkEntity> {
     
         return LayerDefinition.create(meshdefinition, 80, 80);
     }
+
+    @Override
+    public void setupAnim(PaCreakingkEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
+    }
 }

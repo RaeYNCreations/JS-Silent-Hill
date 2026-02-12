@@ -6,6 +6,9 @@ import com.raeyncreations.silenthill.entity.AirScreamerEntity;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
@@ -43,5 +46,10 @@ public class AirScreamerModel extends HumanoidModel<AirScreamerEntity> {
         // Continue with body, head, arms, etc. - full conversion would be too long, but follow the pattern for all bones.
     
         return LayerDefinition.create(meshdefinition, 80, 80);
+    }
+
+    @Override
+    public void setupAnim(AirScreamerEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
     }
 }

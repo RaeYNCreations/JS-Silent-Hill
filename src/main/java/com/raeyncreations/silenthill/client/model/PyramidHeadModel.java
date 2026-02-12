@@ -95,4 +95,9 @@ public class PyramidHeadModel extends HumanoidModel<PyramidHeadEntity> {
     
         return LayerDefinition.create(meshdefinition, 176, 176);
     }
+
+    @Override
+    public void setupAnim(PyramidHeadEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
+    }
 }

@@ -152,4 +152,9 @@ public class LadyFukuroModel extends HumanoidModel<LadyFukuroEntity> {
     
         return LayerDefinition.create(meshdefinition, 80, 80);
     }
+
+    @Override
+    public void setupAnim(LadyFukuroEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
+    }
 }

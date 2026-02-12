@@ -222,4 +222,9 @@ public class AsphyxiaModel extends HumanoidModel<AsphyxiaEntity> {
     
         return LayerDefinition.create(meshdefinition, 96, 96);
     }
+
+    @Override
+    public void setupAnim(AsphyxiaEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
+    }
 }

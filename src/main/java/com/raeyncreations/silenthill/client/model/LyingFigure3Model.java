@@ -90,4 +90,9 @@ public class LyingFigure3Model extends HumanoidModel<LyingFigure3Entity> {
     
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
+
+    @Override
+    public void setupAnim(LyingFigure3Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
+    }
 }

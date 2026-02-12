@@ -63,4 +63,9 @@ public class MannequinModel extends HumanoidModel<MannequinEntity> {
     
         return LayerDefinition.create(meshdefinition, 48, 48);
     }
+
+    @Override
+    public void setupAnim(MannequinEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
+    }
 }

@@ -92,4 +92,9 @@ public class Victism16Model extends HumanoidModel<Victism16Entity> {
     
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
+
+    @Override
+    public void setupAnim(Victism16Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
+    }
 }

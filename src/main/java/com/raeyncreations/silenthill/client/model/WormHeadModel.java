@@ -60,4 +60,9 @@ public class WormHeadModel extends HumanoidModel<WormHeadEntity> {
     
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
+
+    @Override
+    public void setupAnim(WormHeadEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
+    }
 }

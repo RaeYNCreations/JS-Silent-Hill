@@ -6,6 +6,8 @@ import com.raeyncreations.silenthill.entity.SilentHillCreeperEntity;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
@@ -33,5 +35,10 @@ public class SilentHillCreeperModel extends HumanoidModel<SilentHillCreeperEntit
             .texOffs(0, 0).addBox(-4.0F, 0.1F, -2.4F, 8.0F, 0.0F, 8.0F), PartPose.offset(0.0F, 0.0F, -2.0F));
     
         return LayerDefinition.create(meshdefinition, 32, 32);
+    }
+
+    @Override
+    public void setupAnim(SilentHillCreeperEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
     }
 }

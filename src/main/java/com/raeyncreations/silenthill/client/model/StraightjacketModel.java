@@ -81,4 +81,9 @@ public class StraightjacketModel extends HumanoidModel<StraightjacketEntity> {
     
         return LayerDefinition.create(meshdefinition, 80, 80);
     }
+
+    @Override
+    public void setupAnim(StraightjacketEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
+    }
 }

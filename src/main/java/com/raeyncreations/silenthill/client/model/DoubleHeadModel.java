@@ -59,4 +59,9 @@ public class DoubleHeadModel extends HumanoidModel<DoubleHeadEntity> {
     
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
+
+    @Override
+    public void setupAnim(DoubleHeadEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
+    }
 }
