@@ -4,6 +4,7 @@ import com.raeyncreations.silenthill.entity.ModEntities;
 import com.raeyncreations.silenthill.item.ModCreativeModeTabs;
 import com.raeyncreations.silenthill.item.ModItems;
 import com.raeyncreations.silenthill.item.ModSpawnEggs;
+import com.raeyncreations.silenthill.particle.ModParticles;
 import com.raeyncreations.silenthill.sound.ModSounds;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -25,6 +26,7 @@ public class SilentHillMod {
         ModSounds.register(modEventBus);
         ModEntities.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
+        ModParticles.register(modEventBus);
         
         modEventBus.addListener(this::commonSetup);
     }

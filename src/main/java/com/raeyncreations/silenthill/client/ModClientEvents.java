@@ -2,12 +2,17 @@ package com.raeyncreations.silenthill.client;
 
 import com.raeyncreations.silenthill.SilentHillMod;
 import com.raeyncreations.silenthill.client.model.*;
+import com.raeyncreations.silenthill.client.particle.SilentBloodParticle;
+import com.raeyncreations.silenthill.client.particle.VenenoParticle;
 import com.raeyncreations.silenthill.client.renderer.entity.*;
 import com.raeyncreations.silenthill.entity.ModEntities;
+import com.raeyncreations.silenthill.particle.ModParticles;
+import net.minecraft.client.particle.ParticleEngine;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
 @EventBusSubscriber(modid = SilentHillMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModClientEvents {
@@ -56,5 +61,13 @@ public class ModClientEvents {
         event.registerLayerDefinition(PaCreakingkModel.LAYER_LOCATION, PaCreakingkModel::createBodyLayer);
         event.registerLayerDefinition(PaCreakingk2Model.LAYER_LOCATION, PaCreakingk2Model::createBodyLayer);
         event.registerLayerDefinition(PaCreakingkanotherModel.LAYER_LOCATION, PaCreakingkanotherModel::createBodyLayer);
+    }
+
+    @SubscribeEvent
+    public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
+        ParticleEngine particleEngine = event.getParticleEngine();
+        particleEngine.register(ModParticles.SILENT_BLOOD.get(), SilentBloodParticle.Provider::new);
+        particleEngine.register(ModParticles.SILENT_BLOOD_2.get(), SilentBloodParticle.Provider::new);
+        particleEngine.register(ModParticles.VENENO.get(), VenenoParticle.Provider::new);
     }
 }
