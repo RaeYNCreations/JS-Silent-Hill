@@ -1,0 +1,51 @@
+{
+  "mob.mannequin.idle": {
+    "category": "hostile",
+    "sounds": [
+      "silenthill:mob/mannequin/idle/idle1",
+      "silenthill:mob/mannequin/idle/idle2",
+      "silenthill:mob/mannequin/idle/idle3"
+    ]
+  },
+  "mob.mannequin.hurt": {
+    "category": "hostile",
+    "sounds": [
+      "silenthill:mob/mannequin/hurt/hit1",
+      "silenthill:mob/mannequin/hurt/hit2",
+      "silenthill:mob/mannequin/hurt/hit3",
+      "silenthill:mob/mannequin/hurt/hit4"
+    ]
+  },
+  "mob.mannequin.death": {
+    "category": "hostile",
+    "sounds": [
+      "silenthill:mob/mannequin/death/death"
+    ]
+  },
+  "mob.mannequin.angry": {
+    "category": "hostile",
+    "sounds": [
+      "silenthill:mob/mannequin/idle/idle1"
+    ]
+  },
+  "mob.pyramidhead.hit": {
+    "category": "hostile",
+    "sounds": [
+      "silenthill:mob/pyramidhead/hurt/hit1",
+      "silenthill:mob/pyramidhead/hurt/hit4"
+    ]
+  },
+  "mob.pyramidhead.throw": {
+    "category": "hostile",
+    "sounds": [
+      "silenthill:mob/pyramidhead/throw/throw"
+    ]
+  },
+  "mob.pyramidhead.crack": {
+    "category": "hostile",
+    "sounds": [
+      "silenthill:mob/pyramidhead/crack/crack1",
+      "silenthill:mob/pyramidhead/crack/crack2"
+    ]
+  }
+}
