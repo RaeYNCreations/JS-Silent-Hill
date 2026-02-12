@@ -1,0 +1,22 @@
+package com.raeyncreations.silenthill.client.renderer.entity;
+
+import com.raeyncreations.silenthill.entity.StraightjacketEntity;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
+import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
+import net.minecraft.resources.ResourceLocation;
+
+public class StraightjacketRenderer extends HumanoidMobRenderer<StraightjacketEntity, HumanoidModel<StraightjacketEntity>> {
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("silenthill", "textures/entity/straightjacket.png");
+
+    public StraightjacketRenderer(EntityRendererProvider.Context context) {
+        super(context, new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER)), 0.5f);
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(StraightjacketEntity entity) {
+        return TEXTURE;
+    }
+}
