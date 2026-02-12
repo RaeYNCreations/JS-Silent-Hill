@@ -2,8 +2,8 @@ package com.raeyncreations.silenthill.client;
 
 import com.raeyncreations.silenthill.SilentHillMod;
 import com.raeyncreations.silenthill.client.model.*;
-import com.raeyncreations.silenthill.client.particle.SilentBloodParticle;
-import com.raeyncreations.silenthill.client.particle.VenenoParticle;
+import com.raeyncreations.silenthill.client.particle.AdvancedSilentBloodParticle;
+import com.raeyncreations.silenthill.client.particle.AdvancedVenenoParticle;
 import com.raeyncreations.silenthill.client.renderer.entity.*;
 import com.raeyncreations.silenthill.entity.ModEntities;
 import com.raeyncreations.silenthill.particle.ModParticles;
@@ -66,8 +66,9 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
         ParticleEngine particleEngine = event.getParticleEngine();
-        particleEngine.register(ModParticles.SILENT_BLOOD.get(), SilentBloodParticle.Provider::new);
-        particleEngine.register(ModParticles.SILENT_BLOOD_2.get(), SilentBloodParticle.Provider::new);
-        particleEngine.register(ModParticles.VENENO.get(), VenenoParticle.Provider::new);
+        // Use advanced particles with Bedrock features
+        particleEngine.register(ModParticles.SILENT_BLOOD.get(), AdvancedSilentBloodParticle.Provider::new);
+        particleEngine.register(ModParticles.SILENT_BLOOD_2.get(), AdvancedSilentBloodParticle.Provider::new);
+        particleEngine.register(ModParticles.VENENO.get(), AdvancedVenenoParticle.Provider::new);
     }
 }
