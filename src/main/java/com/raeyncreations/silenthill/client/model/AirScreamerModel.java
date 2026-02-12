@@ -1,6 +1,8 @@
-package com.raeyncreations.jssilenthill.client.model;
+package com.raeyncreations.silenthill.client.model;
 
-import com.raeyncreations.jssilenthill.entity.AirScreamer;
+import com.raeyncreations.silenthill.SilentHillMod;
+
+import com.raeyncreations.silenthill.entity.AirScreamerEntity;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -9,8 +11,8 @@ import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.ResourceLocation;
 
-public class AirScreamerModel extends HumanoidModel<AirScreamer> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(JSilentHillMod.MODID, "air_screamer"), "main");
+public class AirScreamerModel extends HumanoidModel<AirScreamerEntity> {
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(SilentHillMod.MOD_ID, "air_screamer"), "main");
 
     public AirScreamerModel(ModelPart root) {
         super(root);

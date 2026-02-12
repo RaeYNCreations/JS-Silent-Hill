@@ -1,6 +1,8 @@
-package com.raeyncreations.jssilenthill.client.model;
+package com.raeyncreations.silenthill.client.model;
 
-import com.raeyncreations.jssilenthill.entity.Victism16;
+import com.raeyncreations.silenthill.SilentHillMod;
+
+import com.raeyncreations.silenthill.entity.Victism16Entity;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -12,8 +14,8 @@ import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.ResourceLocation;
 
-public class Victism16Model extends HumanoidModel<Victism16> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(JSilentHillMod.MODID, "victism16"), "main");
+public class Victism16Model extends HumanoidModel<Victism16Entity> {
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(SilentHillMod.MOD_ID, "victism16"), "main");
 
     public Victism16Model(ModelPart root) {
         super(root);

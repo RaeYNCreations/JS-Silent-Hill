@@ -1,6 +1,8 @@
-package com.raeyncreations.jssilenthill.client.model;
+package com.raeyncreations.silenthill.client.model;
 
-import com.raeyncreations.jssilenthill.entity.LyingFigure3;
+import com.raeyncreations.silenthill.SilentHillMod;
+
+import com.raeyncreations.silenthill.entity.LyingFigure3Entity;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -12,8 +14,8 @@ import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.ResourceLocation;
 
-public class LyingFigure3Model extends HumanoidModel<LyingFigure3> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(JSilentHillMod.MODID, "lying_figure3"), "main");
+public class LyingFigure3Model extends HumanoidModel<LyingFigure3Entity> {
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(SilentHillMod.MOD_ID, "lying_figure3"), "main");
 
     public LyingFigure3Model(ModelPart root) {
         super(root);

@@ -1,6 +1,8 @@
-package com.raeyncreations.jssilenthill.client.model;
+package com.raeyncreations.silenthill.client.model;
 
-import com.raeyncreations.jssilenthill.entity.PaCreakingkanother;
+import com.raeyncreations.silenthill.SilentHillMod;
+
+import com.raeyncreations.silenthill.entity.PaCreakingkanotherEntity;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -12,9 +14,9 @@ import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.ResourceLocation;
 
-public class PaCreakingkanotherModel extends HumanoidModel<PaCreakingkanother> {
+public class PaCreakingkanotherModel extends HumanoidModel<PaCreakingkanotherEntity> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-        ResourceLocation.fromNamespaceAndPath(JSilentHillMod.MODID, "pa_creakingkanother"), "main");
+        ResourceLocation.fromNamespaceAndPath(SilentHillMod.MOD_ID, "pa_creakingkanother"), "main");
 
     public PaCreakingkanotherModel(ModelPart root) {
         super(root);
