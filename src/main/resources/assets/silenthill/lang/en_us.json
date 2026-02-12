@@ -6,6 +6,11 @@
   "entity.silenthill.straightjacket": "Straightjacket",
   
   "item.silenthill.silent_hill_axe": "Silent Hill Axe",
+  "item.silenthill.pyramidhead_spawn_egg": "Pyramid Head Spawn Egg",
+  "item.silenthill.mannequin_spawn_egg": "Mannequin Spawn Egg",
+  "item.silenthill.lyingfigure_spawn_egg": "Lying Figure Spawn Egg",
+  "item.silenthill.cryinggirl_spawn_egg": "Crying Girl Spawn Egg",
+  "item.silenthill.straightjacket_spawn_egg": "Straightjacket Spawn Egg",
   
   "itemGroup.silenthill": "Silent Hill"
 }

@@ -1,7 +1,9 @@
 package com.jsart.silenthill;
 
 import com.jsart.silenthill.entity.ModEntities;
+import com.jsart.silenthill.item.ModCreativeModeTabs;
 import com.jsart.silenthill.item.ModItems;
+import com.jsart.silenthill.item.ModSpawnEggs;
 import com.jsart.silenthill.sound.ModSounds;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -19,8 +21,10 @@ public class SilentHillMod {
         
         // Register mod content
         ModItems.register(modEventBus);
+        ModSpawnEggs.register(modEventBus);
         ModSounds.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
         
         modEventBus.addListener(this::commonSetup);
     }
