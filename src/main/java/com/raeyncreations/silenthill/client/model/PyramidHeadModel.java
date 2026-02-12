@@ -1,83 +1,46 @@
-package com.raeyncreations.silenthill.client.model;
+package com.raeyncreations.jssilenthill.client.model;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.EntityModel;
+import com.raeyncreations.jssilenthill.entity.PyramidHead;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
 
-public class PyramidHeadModel<T extends Entity> extends EntityModel<T> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-            ResourceLocation.fromNamespaceAndPath("silenthill", "pyramidhead"), "main");
-    
-    private final ModelPart body;
-    private final ModelPart head;
-    private final ModelPart rightArm;
-    private final ModelPart leftArm;
-    private final ModelPart rightLeg;
-    private final ModelPart leftLeg;
+public class PyramidHeadModel extends HumanoidModel<PyramidHead> {
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(JSilentHillMod.MODID, "pyramid_head"), "main");
 
     public PyramidHeadModel(ModelPart root) {
-        this.body = root.getChild("body");
-        this.head = root.getChild("head");
-        this.rightArm = root.getChild("right_arm");
-        this.leftArm = root.getChild("left_arm");
-        this.rightLeg = root.getChild("right_leg");
-        this.leftLeg = root.getChild("left_leg");
+        super(root);
     }
 
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
-
-        partdefinition.addOrReplaceChild("body", CubeListBuilder.create()
-                .texOffs(0, 16)
-                .addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F), PartPose.offset(0.0F, 0.0F, 0.0F));
-        
-        // Large pyramid head
-        partdefinition.addOrReplaceChild("head", CubeListBuilder.create()
-                .texOffs(0, 0)
-                .addBox(-6.0F, -16.0F, -6.0F, 12.0F, 12.0F, 12.0F), PartPose.offset(0.0F, 0.0F, 0.0F));
-        
-        partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create()
-                .texOffs(40, 16)
-                .addBox(-2.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F), PartPose.offset(-5.0F, 2.0F, 0.0F));
-        
-        partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create()
-                .texOffs(40, 16).mirror()
-                .addBox(-1.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F), PartPose.offset(5.0F, 2.0F, 0.0F));
-        
-        partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create()
-                .texOffs(0, 32)
-                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F), PartPose.offset(-2.0F, 12.0F, 0.0F));
-        
-        partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create()
-                .texOffs(0, 32).mirror()
-                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F), PartPose.offset(2.0F, 12.0F, 0.0F));
-
-        return LayerDefinition.create(meshdefinition, 64, 64);
-    }
-
-    @Override
-    public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        // Basic walking animation
-        this.rightLeg.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-        this.leftLeg.xRot = (float) Math.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-        this.rightArm.xRot = (float) Math.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-        this.leftArm.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-    }
-
-    @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
-        body.render(poseStack, buffer, packedLight, packedOverlay, color);
-        head.render(poseStack, buffer, packedLight, packedOverlay, color);
-        rightArm.render(poseStack, buffer, packedLight, packedOverlay, color);
-        leftArm.render(poseStack, buffer, packedLight, packedOverlay, color);
-        rightLeg.render(poseStack, buffer, packedLight, packedOverlay, color);
-        leftLeg.render(poseStack, buffer, packedLight, packedOverlay, color);
+    
+        PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create()
+            .texOffs(31, 120).addBox(-8.0F, 15.0F, -2.0F, 16.0F, 10.0F, 8.0F)
+            .texOffs(0, 42).addBox(-8.0F, 5.0F, -2.0F, 16.0F, 10.0F, 8.0F, new CubeDeformation(0.5F))
+            .texOffs(112, 0).addBox(-7.0F, 25.0F, -2.0F, 14.0F, 18.0F, 8.0F)
+            .texOffs(123, 84).addBox(-8.0F, 37.0F, -9.0F, 16.0F, 4.0F, 5.0F, CubeDeformation.NONE, -37.5F, 0.0F, 0.0F)
+            .texOffs(0, 19).addBox(-7.0F, 31.0F, -3.0F, 14.0F, 10.0F, 1.0F), PartPose.offset(0.0F, 47.0F, 2.0F));
+    
+        PartDefinition head = body.addOrReplaceChild("head", CubeListBuilder.create()
+            .texOffs(0, 0).addBox(-7.0F, 43.8516F, -19.6703F, 14.0F, 2.0F, 32.0F, new CubeDeformation(0.1F), -22.5F, 0.0F, 0.0F)
+            .texOffs(49, 105).addBox(2.0F, 42.8516F, -12.6703F, 4.0F, 1.0F, 4.0F, CubeDeformation.NONE, -22.5F, 0.0F, 0.0F)
+            .texOffs(104, 103).addBox(-5.0F, 42.8516F, -6.6703F, 4.0F, 1.0F, 4.0F, CubeDeformation.NONE, -22.5F, 0.0F, 0.0F)
+            .texOffs(104, 98).addBox(-3.0F, 42.8516F, -14.6703F, 4.0F, 1.0F, 4.0F, CubeDeformation.NONE, -22.5F, 0.0F, 0.0F)
+            .texOffs(104, 93).addBox(-6.0F, 42.8516F, 0.3297F, 4.0F, 1.0F, 4.0F, CubeDeformation.NONE, -22.5F, 0.0F, 0.0F)
+            .texOffs(92, 57).addBox(3.0F, 42.8516F, 4.3297F, 4.0F, 1.0F, 4.0F, CubeDeformation.NONE, -22.5F, 0.0F, 0.0F)
+            .texOffs(92, 50).addBox(-1.0F, 42.8516F, 2.3297F, 4.0F, 1.0F, 4.0F, CubeDeformation.NONE, -22.5F, 0.0F, 0.0F)
+            .texOffs(98, 75).addBox(1.0F, 42.8516F, -2.6703F, 4.0F, 1.0F, 4.0F, CubeDeformation.NONE, -22.5F, 0.0F, 0.0F)
+            // Add more cubes for head details, ears, hat, etc.
+            , PartPose.offset(0.0F, 45.0F, 1.0F).rotation(50.0F, 0.0F, 0.0F));
+    
+        // Add arms, legs, espada.
+    
+        return LayerDefinition.create(meshdefinition, 176, 176);
     }
 }
