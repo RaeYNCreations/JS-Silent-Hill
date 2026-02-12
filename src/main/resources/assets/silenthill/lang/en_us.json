@@ -1,0 +1,11 @@
+{
+  "entity.silenthill.pyramidhead": "Pyramid Head",
+  "entity.silenthill.mannequin": "Mannequin",
+  "entity.silenthill.lyingfigure": "Lying Figure",
+  "entity.silenthill.cryinggirl": "Crying Girl",
+  "entity.silenthill.straightjacket": "Straightjacket",
+  
+  "item.silenthill.silent_hill_axe": "Silent Hill Axe",
+  
+  "itemGroup.silenthill": "Silent Hill"
+}
