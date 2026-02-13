@@ -68,6 +68,8 @@ public class MoLangExpression {
         // Check cache first
         MoLangExpression cached = EXPRESSION_CACHE.get(normalized);
         if (cached != null) {
+            // Create new instance with same AST but new variables map
+            // AST nodes are immutable and safe to reuse
             return new MoLangExpression(normalized, cached.ast);
         }
         
@@ -93,10 +95,26 @@ public class MoLangExpression {
     
     /**
      * Legacy constructor for backwards compatibility.
+     * Creates a default context and parses the expression.
      * @param expression The expression string
      */
     public MoLangExpression(String expression) {
-        this(expression, parse(expression != null ? expression : "0").ast);
+        String normalized = expression != null ? expression.trim() : "0";
+        this.source = normalized;
+        
+        ASTNode parsedAst;
+        try {
+            Tokenizer tokenizer = new Tokenizer(normalized);
+            List<Token> tokens = tokenizer.tokenize();
+            Parser parser = new Parser(tokens);
+            parsedAst = parser.parse();
+        } catch (Exception e) {
+            // Fall back to a simple number node on error
+            parsedAst = new NumberNode(0);
+        }
+        
+        this.ast = parsedAst;
+        this.variables = new ConcurrentHashMap<>();
     }
     
     /**

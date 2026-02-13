@@ -111,10 +111,22 @@ public final class MoLangContext {
     
     private static float getFieldFloat(Object obj, String fieldName) {
         try {
+            // Try public field first
             var field = obj.getClass().getField(fieldName);
             Object value = field.get(obj);
             if (value instanceof Number) {
                 return ((Number) value).floatValue();
+            }
+        } catch (NoSuchFieldException e) {
+            // Try private/protected field
+            try {
+                var field = obj.getClass().getDeclaredField(fieldName);
+                field.setAccessible(true);
+                Object value = field.get(obj);
+                if (value instanceof Number) {
+                    return ((Number) value).floatValue();
+                }
+            } catch (Exception ignored) {
             }
         } catch (Exception ignored) {
         }
@@ -123,10 +135,22 @@ public final class MoLangContext {
     
     private static boolean getFieldBoolean(Object obj, String fieldName) {
         try {
+            // Try public field first
             var field = obj.getClass().getField(fieldName);
             Object value = field.get(obj);
             if (value instanceof Boolean) {
                 return (Boolean) value;
+            }
+        } catch (NoSuchFieldException e) {
+            // Try private/protected field
+            try {
+                var field = obj.getClass().getDeclaredField(fieldName);
+                field.setAccessible(true);
+                Object value = field.get(obj);
+                if (value instanceof Boolean) {
+                    return (Boolean) value;
+                }
+            } catch (Exception ignored) {
             }
         } catch (Exception ignored) {
         }
