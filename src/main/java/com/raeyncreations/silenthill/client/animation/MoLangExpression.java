@@ -239,7 +239,7 @@ public class MoLangExpression {
                     continue;
                 }
                 
-                // Numbers
+                // Numbers - handles both "42" and ".5" formats
                 if (Character.isDigit(c) || (c == '.' && pos + 1 < input.length() && Character.isDigit(input.charAt(pos + 1)))) {
                     tokens.add(readNumber());
                     continue;
@@ -787,7 +787,9 @@ public class MoLangExpression {
         
         private float evaluateThreeArgFunction(String name, float arg1, float arg2, float arg3) {
             if (name.equals("math.clamp")) {
-                return Math.max(arg2, Math.min(arg3, arg1));
+                // clamp(value, min, max) = max(min, min(value, max))
+                // arg1 = value, arg2 = min, arg3 = max
+                return Math.max(arg2, Math.min(arg1, arg3));
             }
             return evaluateTwoArgFunction(name, arg1, arg2);
         }

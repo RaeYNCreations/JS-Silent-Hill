@@ -65,6 +65,12 @@ public final class MoLangContext {
     /**
      * Create a context from a Minecraft LivingEntity.
      * Uses reflection to avoid direct dependency on Minecraft classes.
+     * 
+     * <p><b>Security Note:</b> This method uses setAccessible(true) to access private fields.
+     * It should only be used with trusted entity objects from the Minecraft runtime.
+     * The reflection access is necessary to avoid compile-time dependencies on Minecraft classes
+     * while still extracting entity state for animations.
+     * 
      * @param entity The entity to extract state from (must be net.minecraft.world.entity.LivingEntity)
      * @return A new context with entity state
      */
