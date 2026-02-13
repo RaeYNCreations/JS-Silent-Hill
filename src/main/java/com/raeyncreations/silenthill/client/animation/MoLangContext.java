@@ -16,7 +16,7 @@ package com.raeyncreations.silenthill.client.animation;
  * float result = expression.evaluate(context);
  * </pre>
  * 
- * @author RaeynCreations
+ * @author RaEyn Creations
  */
 public final class MoLangContext {
     // Time-based queries

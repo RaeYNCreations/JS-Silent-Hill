@@ -36,7 +36,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * );
  * </pre>
  * 
- * @author RaeynCreations
+ * @author RaEyn Creations
  */
 public class MoLangExpression {
     private static final Map<String, MoLangExpression> EXPRESSION_CACHE = new ConcurrentHashMap<>();
@@ -714,7 +714,14 @@ public class MoLangExpression {
             
             float arg = args.get(0).evaluate(context, variables);
             
-            // Multi-argument functions
+            // Three-argument functions
+            if (args.size() > 2) {
+                float arg2 = args.get(1).evaluate(context, variables);
+                float arg3 = args.get(2).evaluate(context, variables);
+                return evaluateThreeArgFunction(functionName, arg, arg2, arg3);
+            }
+            
+            // Two-argument functions
             if (args.size() > 1) {
                 float arg2 = args.get(1).evaluate(context, variables);
                 return evaluateTwoArgFunction(functionName, arg, arg2);
@@ -756,9 +763,15 @@ public class MoLangExpression {
                 case "math.pow": return (float) Math.pow(arg1, arg2);
                 case "math.min": return Math.min(arg1, arg2);
                 case "math.max": return Math.max(arg1, arg2);
-                case "math.clamp": return Math.max(0, Math.min(1, arg1)); // Simplified
                 default: return evaluateFunction(name, arg1);
             }
+        }
+        
+        private float evaluateThreeArgFunction(String name, float arg1, float arg2, float arg3) {
+            if (name.equals("math.clamp")) {
+                return Math.max(arg2, Math.min(arg3, arg1));
+            }
+            return evaluateTwoArgFunction(name, arg1, arg2);
         }
     }
     
