@@ -1,5 +1,8 @@
 package com.raeyncreations.silenthill.client.animation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Represents a transition between two animation states in the state machine.
  * <p>
@@ -52,6 +55,8 @@ package com.raeyncreations.silenthill.client.animation;
  * @since 3.0.0
  */
 public class AnimationTransition {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(AnimationTransition.class);
     
     private final String targetState;
     private final TransitionCondition condition;
@@ -115,8 +120,8 @@ public class AnimationTransition {
             return condition.test(entity, deltaTime);
         } catch (Exception e) {
             // Log error but don't crash - return false to prevent transition
-            System.err.println("Error evaluating transition condition to state '" + 
-                             targetState + "': " + e.getMessage());
+            LOGGER.error("Error evaluating transition condition to state '{}': {}", 
+                        targetState, e.getMessage(), e);
             return false;
         }
     }

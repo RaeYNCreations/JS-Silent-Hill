@@ -1,5 +1,8 @@
 package com.raeyncreations.silenthill.client.animation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -72,6 +75,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @since 3.0.0
  */
 public class AnimationController {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(AnimationController.class);
     
     private final String name;
     private final Map<String, AnimationStateNode> states;
@@ -220,8 +225,8 @@ public class AnimationController {
         try {
             AnimationStateNode targetState = states.get(stateName);
             if (targetState == null) {
-                System.err.println("AnimationController '" + name + 
-                                 "': Cannot transition to unknown state '" + stateName + "'");
+                LOGGER.warn("AnimationController '{}': Cannot transition to unknown state '{}'", 
+                           name, stateName);
                 return false;
             }
             
@@ -310,8 +315,7 @@ public class AnimationController {
             }
             
         } catch (Exception e) {
-            System.err.println("Error updating AnimationController '" + name + "': " + e.getMessage());
-            e.printStackTrace();
+            LOGGER.error("Error updating AnimationController '{}': {}", name, e.getMessage(), e);
         } finally {
             lock.writeLock().unlock();
         }
