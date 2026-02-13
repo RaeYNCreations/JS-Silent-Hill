@@ -57,6 +57,14 @@ repositories {
 
 dependencies {
     minecraft 'net.neoforged:neoforge:21.1.73'  // Revert to this
+    
+    // JUnit 5 for unit testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+}
+
+test {
+    useJUnitPlatform()
 }
 
 jar {

@@ -32,6 +32,55 @@ public class AnimationChannel {
     }
     
     /**
+     * Get the interpolated rotation at a specific time point using quaternion slerp.
+     * This provides smoother rotation interpolation than linear interpolation.
+     * @param time The animation time in seconds
+     * @return Interpolated quaternion rotation
+     */
+    public Quaternion getQuaternionAt(float time) {
+        if (keyframes.isEmpty()) {
+            return Quaternion.identity();
+        }
+        
+        // If before first keyframe, return first keyframe rotation
+        if (time <= keyframes.get(0).getTime()) {
+            float[] rot = keyframes.get(0).getRotation();
+            return Quaternion.fromEulerDegrees(rot[0], rot[1], rot[2]);
+        }
+        
+        // If after last keyframe, return last keyframe rotation
+        if (time >= keyframes.get(keyframes.size() - 1).getTime()) {
+            float[] rot = keyframes.get(keyframes.size() - 1).getRotation();
+            return Quaternion.fromEulerDegrees(rot[0], rot[1], rot[2]);
+        }
+        
+        // Find the two keyframes to interpolate between
+        for (int i = 0; i < keyframes.size() - 1; i++) {
+            AnimationKeyframe current = keyframes.get(i);
+            AnimationKeyframe next = keyframes.get(i + 1);
+            
+            if (time >= current.getTime() && time <= next.getTime()) {
+                // Calculate interpolation factor
+                float duration = next.getTime() - current.getTime();
+                float progress = (time - current.getTime()) / duration;
+                
+                // Convert Euler angles to quaternions
+                float[] currentRot = current.getRotation();
+                float[] nextRot = next.getRotation();
+                
+                Quaternion q1 = Quaternion.fromEulerDegrees(currentRot[0], currentRot[1], currentRot[2]);
+                Quaternion q2 = Quaternion.fromEulerDegrees(nextRot[0], nextRot[1], nextRot[2]);
+                
+                // Perform slerp interpolation
+                return Quaternion.slerp(q1, q2, progress);
+            }
+        }
+        
+        // Fallback
+        return Quaternion.identity();
+    }
+    
+    /**
      * Get the interpolated rotation at a specific time point.
      * @param time The animation time in seconds
      * @return Interpolated rotation [x, y, z] in degrees

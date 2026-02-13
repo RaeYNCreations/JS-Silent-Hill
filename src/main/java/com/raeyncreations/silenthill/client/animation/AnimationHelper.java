@@ -5,11 +5,58 @@ import net.minecraft.util.Mth;
 
 /**
  * Helper class to apply Bedrock animations to Minecraft model parts.
+ * Supports both Euler angle and quaternion-based rotation interpolation.
  */
 public class AnimationHelper {
     
     /**
+     * Apply animation transforms to a model part using quaternion-based rotation.
+     * This provides smoother interpolation and avoids gimbal lock.
+     * @param part The ModelPart to animate
+     * @param boneName The bone name from Bedrock animation
+     * @param state The current animation state
+     * @param animation The Bedrock animation to apply
+     * @param ageInTicks Current age/time for the entity
+     */
+    public static void applyAnimationWithQuaternion(ModelPart part, String boneName, AnimationState state, 
+                                                   BedrockAnimation animation, float ageInTicks) {
+        if (animation == null || part == null) {
+            return;
+        }
+        
+        AnimationChannel channel = animation.getChannelForBone(boneName);
+        if (channel == null) {
+            return;
+        }
+        
+        // Get animation time (in seconds)
+        float animTime = state.getElapsedTime() / 20.0F; // Convert ticks to seconds
+        float normalizedTime = animation.normalizeTime(animTime);
+        
+        // Get interpolated transforms using quaternion slerp for rotation
+        Quaternion rotation = channel.getQuaternionAt(normalizedTime);
+        float[] position = channel.getPositionAtTime(normalizedTime);
+        
+        // Convert quaternion to Euler angles and apply rotation
+        float[] euler = rotation.toEuler();
+        float blendWeight = state.getBlendWeight();
+        part.xRot = Mth.lerp(blendWeight, part.xRot, euler[0]);
+        part.yRot = Mth.lerp(blendWeight, part.yRot, euler[1]);
+        part.zRot = Mth.lerp(blendWeight, part.zRot, euler[2]);
+        
+        // Apply position offset
+        if (position != null) {
+            part.x = Mth.lerp(blendWeight, part.x, position[0]);
+            part.y = Mth.lerp(blendWeight, part.y, position[1]);
+            part.z = Mth.lerp(blendWeight, part.z, position[2]);
+        }
+        
+        // Note: Scale is not directly supported in ModelPart, would need custom rendering
+    }
+    
+    /**
      * Apply animation transforms to a model part based on current animation state.
+     * Uses traditional linear interpolation for backwards compatibility.
      * @param part The ModelPart to animate
      * @param boneName The bone name from Bedrock animation
      * @param state The current animation state
@@ -22,19 +69,19 @@ public class AnimationHelper {
             return;
         }
         
-        AnimationChannel channel = animation.getChannel(boneName);
+        AnimationChannel channel = animation.getChannelForBone(boneName);
         if (channel == null) {
             return;
         }
         
         // Get animation time (in seconds)
         float animTime = state.getElapsedTime() / 20.0F; // Convert ticks to seconds
-        float normalizedTime = animation.getNormalizedTime(animTime);
+        float normalizedTime = animation.normalizeTime(animTime);
         
         // Get interpolated transforms
-        float[] rotation = channel.getRotationAt(normalizedTime);
-        float[] position = channel.getPositionAt(normalizedTime);
-        float[] scale = channel.getScaleAt(normalizedTime);
+        float[] rotation = channel.getRotationAtTime(normalizedTime);
+        float[] position = channel.getPositionAtTime(normalizedTime);
+        float[] scale = channel.getScaleAtTime(normalizedTime);
         
         // Apply rotation (convert degrees to radians)
         if (rotation != null) {
