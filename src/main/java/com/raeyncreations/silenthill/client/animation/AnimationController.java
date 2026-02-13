@@ -292,6 +292,12 @@ public class AnimationController {
             
             // Handle animation looping
             BedrockAnimation animation = currentState.getAnimation();
+            if (animation == null) {
+                LOGGER.error("AnimationController '{}': Current state '{}' has null animation", 
+                           name, currentState.getName());
+                return;
+            }
+            
             float animLength = animation.getAnimationLength();
             boolean shouldLoop = currentState.shouldLoop();
             

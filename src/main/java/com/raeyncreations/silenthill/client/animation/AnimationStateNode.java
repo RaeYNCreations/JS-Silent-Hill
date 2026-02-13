@@ -307,8 +307,11 @@ public class AnimationStateNode {
     
     @Override
     public String toString() {
+        String animName = animation != null && animation.getName() != null 
+            ? animation.getName() 
+            : "null";
         return String.format("AnimationStateNode{name='%s', animation='%s', transitions=%d, speed=%.2f}",
-                           name, animation.getName(), transitions.size(), speed);
+                           name, animName, transitions.size(), speed);
     }
     
     @Override
