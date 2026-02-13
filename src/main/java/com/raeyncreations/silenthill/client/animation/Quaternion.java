@@ -1,7 +1,12 @@
 package com.raeyncreations.silenthill.client.animation;
 
 /**
- * Quaternion class for representing 3D rotations using Hamilton notation (w, x, y, z).
+ * Quaternion class for representing 3D rotations using Hamilton notation.
+ * Components are stored as (x, y, z, w) for programming convenience, where:
+ * - x, y, z are the imaginary components (i, j, k coefficients)
+ * - w is the scalar/real component
+ * This corresponds to the mathematical form: q = w + xi + yj + zk
+ * 
  * Provides smooth interpolation via spherical linear interpolation (slerp) and 
  * conversion to/from Euler angles for compatibility with existing animation systems.
  * 
