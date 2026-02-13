@@ -22,6 +22,7 @@ public class ModCreativeModeTabs {
                 .displayItems((parameters, output) -> {
                     // Add custom items
                     output.accept(ModItems.SILENT_HILL_AXE.get());
+                    output.accept(ModItems.SAFE_HAVEN_OBELISK.get());
                     
                     // Add spawn eggs
                     output.accept(ModSpawnEggs.PYRAMID_HEAD_SPAWN_EGG.get());

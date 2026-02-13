@@ -17,6 +17,11 @@ public class ModItems {
                     .durability(500)
                     .fireResistant()));
 
+    // Safe Haven Obelisk - creates a zone of protection against hostile mobs
+    public static final DeferredHolder<Item, SafeHavenObeliskItem> SAFE_HAVEN_OBELISK = ITEMS.register("safe_haven_obelisk",
+            () -> new SafeHavenObeliskItem(new Item.Properties()
+                    .stacksTo(1)));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
