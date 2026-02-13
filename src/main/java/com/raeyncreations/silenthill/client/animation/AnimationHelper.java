@@ -114,3 +114,72 @@ public class AnimationHelper {
         part.z = 0.0F;
     }
 }
+
+    /**
+     * Apply animation with scale support using ScaleableModelPart.
+     * @param scaleable The ScaleableModelPart wrapper
+     * @param boneName The bone name from Bedrock animation
+     * @param state The current animation state
+     * @param animation The Bedrock animation to apply
+     * @param ageInTicks Current age/time for the entity
+     */
+    public static void applyAnimationWithScale(com.raeyncreations.silenthill.client.renderer.ScaleableModelPart scaleable, 
+                                              String boneName, AnimationState state, 
+                                              BedrockAnimation animation, float ageInTicks) {
+        if (animation == null || scaleable == null) {
+            return;
+        }
+        
+        AnimationChannel channel = animation.getChannelForBone(boneName);
+        if (channel == null) {
+            return;
+        }
+        
+        ModelPart part = scaleable.getModelPart();
+        float animTime = state.getElapsedTime() / 20.0F;
+        float normalizedTime = animation.normalizeTime(animTime);
+        
+        // Get interpolated transforms
+        float[] rotation = channel.getRotationAtTime(normalizedTime);
+        float[] position = channel.getPositionAtTime(normalizedTime);
+        float[] scale = channel.getScaleAtTime(normalizedTime);
+        
+        // Apply rotation
+        if (rotation != null) {
+            float blendWeight = state.getBlendWeight();
+            part.xRot = Mth.lerp(blendWeight, part.xRot, rotation[0] * Mth.DEG_TO_RAD);
+            part.yRot = Mth.lerp(blendWeight, part.yRot, rotation[1] * Mth.DEG_TO_RAD);
+            part.zRot = Mth.lerp(blendWeight, part.zRot, rotation[2] * Mth.DEG_TO_RAD);
+        }
+        
+        // Apply position
+        if (position != null) {
+            float blendWeight = state.getBlendWeight();
+            part.x = Mth.lerp(blendWeight, part.x, position[0]);
+            part.y = Mth.lerp(blendWeight, part.y, position[1]);
+            part.z = Mth.lerp(blendWeight, part.z, position[2]);
+        }
+        
+        // Apply scale (with blend)
+        if (scale != null) {
+            float blendWeight = state.getBlendWeight();
+            float currentScaleX = scaleable.getScaleX();
+            float currentScaleY = scaleable.getScaleY();
+            float currentScaleZ = scaleable.getScaleZ();
+            
+            scaleable.setScale(
+                Mth.lerp(blendWeight, currentScaleX, scale[0]),
+                Mth.lerp(blendWeight, currentScaleY, scale[1]),
+                Mth.lerp(blendWeight, currentScaleZ, scale[2])
+            );
+        }
+    }
+    
+    /**
+     * Reset scaleable model part to default pose and scale
+     */
+    public static void resetPose(com.raeyncreations.silenthill.client.renderer.ScaleableModelPart scaleable) {
+        resetPose(scaleable.getModelPart());
+        scaleable.resetScale();
+    }
+}
