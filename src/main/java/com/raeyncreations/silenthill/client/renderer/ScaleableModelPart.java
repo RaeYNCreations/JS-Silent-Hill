@@ -70,6 +70,10 @@ public class ScaleableModelPart {
     /**
      * Render the model part with scale applied.
      * This should be called instead of modelPart.render() when scale is needed.
+     * 
+     * Note: In Minecraft 1.21.1+, the ModelPart.render() method no longer accepts
+     * separate RGBA color parameters. Color tinting should be applied via the
+     * VertexConsumer instead.
      */
     public void render(PoseStack poseStack, VertexConsumer vertexConsumer, 
                       int packedLight, int packedOverlay) {

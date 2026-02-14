@@ -22,7 +22,9 @@ public class SilentHillCreeperEntity extends Creeper {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new SwellGoal(this));
-        // Removed AvoidEntityGoal - creepers should approach players to explode
+        // Removed AvoidEntityGoal - creepers should approach players to explode, not avoid them
+        // Removed MeleeAttackGoal - creepers explode instead of using melee attacks
+        // The SwellGoal (priority 1) handles the explosion behavior when near targets
         this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 0.8D));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
