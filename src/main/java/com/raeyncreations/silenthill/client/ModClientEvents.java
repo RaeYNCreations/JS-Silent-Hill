@@ -7,7 +7,6 @@ import com.raeyncreations.silenthill.client.particle.AdvancedVenenoParticle;
 import com.raeyncreations.silenthill.client.renderer.entity.*;
 import com.raeyncreations.silenthill.entity.ModEntities;
 import com.raeyncreations.silenthill.particle.ModParticles;
-import net.minecraft.client.particle.ParticleEngine;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -65,10 +64,9 @@ public class ModClientEvents {
 
     @SubscribeEvent
     public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
-        ParticleEngine particleEngine = event.getParticleEngine();
         // Use advanced particles with Bedrock features
-        particleEngine.register(ModParticles.SILENT_BLOOD.get(), AdvancedSilentBloodParticle.Provider::new);
-        particleEngine.register(ModParticles.SILENT_BLOOD_2.get(), AdvancedSilentBloodParticle.Provider::new);
-        particleEngine.register(ModParticles.VENENO.get(), AdvancedVenenoParticle.Provider::new);
+        event.registerSpriteSet(ModParticles.SILENT_BLOOD.get(), AdvancedSilentBloodParticle.Provider::new);
+        event.registerSpriteSet(ModParticles.SILENT_BLOOD_2.get(), AdvancedSilentBloodParticle.Provider::new);
+        event.registerSpriteSet(ModParticles.VENENO.get(), AdvancedVenenoParticle.Provider::new);
     }
 }

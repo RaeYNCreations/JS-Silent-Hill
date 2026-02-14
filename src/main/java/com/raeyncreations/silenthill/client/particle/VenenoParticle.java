@@ -38,8 +38,8 @@ public class VenenoParticle extends TextureSheetParticle {
         super.tick();
         this.setSpriteFromAge(this.sprites);
         
-        // Shrink over time
-        this.quadSize -= 0.01F;
+        // Shrink over time with minimum size to prevent negative values
+        this.quadSize = Math.max(0.01F, this.quadSize - 0.01F);
         
         // Fade out over lifetime
         this.alpha = 1.0F - ((float)this.age / (float)this.lifetime);

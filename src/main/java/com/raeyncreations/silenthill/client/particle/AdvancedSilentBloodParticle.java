@@ -115,8 +115,18 @@ public class AdvancedSilentBloodParticle extends TextureSheetParticle {
             }
         }
         
+        // Bounds check to prevent array index out of bounds
+        if (index >= GRADIENT_TIMES.length - 1) {
+            index = GRADIENT_TIMES.length - 2;
+        }
+        
         // Interpolate between two gradient points
-        float localT = (t - GRADIENT_TIMES[index]) / (GRADIENT_TIMES[index + 1] - GRADIENT_TIMES[index]);
+        float deltaTime = GRADIENT_TIMES[index + 1] - GRADIENT_TIMES[index];
+        // Prevent division by zero
+        if (deltaTime < 0.0001F) {
+            deltaTime = 0.0001F;
+        }
+        float localT = (t - GRADIENT_TIMES[index]) / deltaTime;
         int color1 = GRADIENT_COLORS[index];
         int color2 = GRADIENT_COLORS[Math.min(index + 1, GRADIENT_COLORS.length - 1)];
         

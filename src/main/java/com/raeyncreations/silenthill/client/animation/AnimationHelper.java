@@ -113,7 +113,6 @@ public class AnimationHelper {
         part.y = 0.0F;
         part.z = 0.0F;
     }
-}
 
     /**
      * Apply animation with scale support using ScaleableModelPart.

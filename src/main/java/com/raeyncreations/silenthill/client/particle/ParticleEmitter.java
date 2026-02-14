@@ -46,6 +46,11 @@ public class ParticleEmitter {
         }
         
         EmitterStage stage = stages.get(currentStage);
+        // Null check to prevent NPE if stages list is corrupted
+        if (stage == null) {
+            currentStage++;
+            return;
+        }
         stage.update(deltaTime, level);
         
         if (stage.isComplete()) {
