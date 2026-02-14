@@ -1,16 +1,21 @@
-package com.raeyncreations.jssilenthill.client.model;
+package com.raeyncreations.silenthill.client.model;
 
-import com.raeyncreations.jssilenthill.entity.LyingFigure;
+import com.raeyncreations.silenthill.SilentHillMod;
+
+import com.raeyncreations.silenthill.entity.LyingFigureEntity;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.ResourceLocation;
 
-public class LyingFigureModel extends HumanoidModel<LyingFigure> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(JSilentHillMod.MODID, "lying_figure"), "main");
+public class LyingFigureModel extends HumanoidModel<LyingFigureEntity> {
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(SilentHillMod.MOD_ID, "lying_figure"), "main");
 
     public LyingFigureModel(ModelPart root) {
         super(root);
@@ -27,8 +32,45 @@ public class LyingFigureModel extends HumanoidModel<LyingFigure> {
             .texOffs(40, 24).addBox(-2.5F, 17.6993F, -0.9537F, 5.0F, 1.0F, 3.0F, CubeDeformation.NONE, 2.5F, 0.0F, 0.0F)
             .texOffs(0, 0).addBox(-3.5F, 11.4993F, -2.9537F, 7.0F, 5.0F, 8.0F, new CubeDeformation(-2.1F), 2.5F, 0.0F, 0.0F), PartPose.offset(0.0F, 15.0F, 1.0F));
     
-        // Add corpo, bracos, cabeca, peito, legs.
+        PartDefinition corpo = bone2.addOrReplaceChild("Corpo", CubeListBuilder.create()
+            .texOffs(0, 13).addBox(-3.5F, 18.7031F, -1.1282F, 7.0F, 8.0F, 4.0F, CubeDeformation.NONE, 2.5F, 0.0F, 0.0F), 
+            PartPose.offset(0.0F, 19.0F, 1.0F));
+    
+        PartDefinition bracos = bone2.addOrReplaceChild("Bracos", CubeListBuilder.create()
+            .texOffs(12, 40).addBox(-5.5F, 18.7069F, -1.30268F, 2.0F, 8.0F, 3.0F, CubeDeformation.NONE, -27.5F, 0.0F, 0.0F)
+            .texOffs(22, 0).addBox(-3.5F, 18.7069F, -1.30268F, 7.0F, 4.0F, 3.0F, CubeDeformation.NONE, -27.5F, 0.0F, 0.0F)
+            .texOffs(40, 4).addBox(3.5F, 18.7069F, -1.30268F, 2.0F, 8.0F, 3.0F, CubeDeformation.NONE, -27.5F, 0.0F, 0.0F), 
+            PartPose.offset(0.0F, 25.0F, 0.0F));
+    
+        PartDefinition cabeca = bone2.addOrReplaceChild("Cabeca", CubeListBuilder.create()
+            .texOffs(0, 25).addBox(-2.5F, 26.7031F, -1.1282F, 5.0F, 6.0F, 4.0F, CubeDeformation.NONE, 2.5F, 0.0F, 0.0F), 
+            PartPose.offset(0.0F, 27.0F, 0.0F));
+    
+        PartDefinition peito = bone2.addOrReplaceChild("Peito", CubeListBuilder.create()
+            .texOffs(44, 28).addBox(-3.0F, 21.47113F, -1.26619F, 3.0F, 4.0F, 2.0F, CubeDeformation.NONE, -35.36165F, 10.97831F, 8.56081F)
+            .texOffs(36, 41).addBox(0.0F, 21.47113F, -1.26619F, 3.0F, 4.0F, 2.0F, CubeDeformation.NONE, -35.36165F, -10.97831F, -8.56081F)
+            .texOffs(0, 2).addBox(-2.0F, 21.2F, -0.26619F, 1.0F, 1.0F, 1.0F, CubeDeformation.NONE, -35.36165F, 10.97831F, 8.56081F)
+            .texOffs(0, 0).addBox(1.0F, 21.2F, -0.26619F, 1.0F, 1.0F, 1.0F, CubeDeformation.NONE, -35.36165F, -10.97831F, -8.56081F), 
+            PartPose.offset(0.0F, 24.0F, 0.0F));
+    
+        PartDefinition rightLeg2 = bone.addOrReplaceChild("RightLeg2", CubeListBuilder.create()
+            .texOffs(18, 29).addBox(-3.0F, 8.69899F, -0.95372F, 3.0F, 7.0F, 4.0F, CubeDeformation.NONE, -5.0F, 0.0F, -5.0F)
+            .texOffs(22, 41).addBox(-2.5F, 13.69899F, 0.04628F, 4.0F, 4.0F, 3.0F, CubeDeformation.NONE, -5.0F, -20.0F, -5.0F)
+            .texOffs(44, 45).addBox(-3.0F, -0.30101F, -0.95372F, 3.0F, 3.0F, 2.0F, CubeDeformation.NONE, 15.0F, 0.0F, 0.0F), 
+            PartPose.offset(-1.9F, 15.69929F, 1.04628F).xRot(-7.5F * (float)(Math.PI / 180.0F)).zRot(-2.5F * (float)(Math.PI / 180.0F)));
+    
+        PartDefinition leftLeg2 = bone.addOrReplaceChild("LeftLeg2", CubeListBuilder.create()
+            .texOffs(44, 34).addBox(0.0F, -0.30101F, -0.95372F, 3.0F, 3.0F, 2.0F, CubeDeformation.NONE, 15.0F, 0.0F, 0.0F)
+            .texOffs(26, 9).addBox(0.0F, 8.69899F, -0.95372F, 3.0F, 7.0F, 4.0F, CubeDeformation.NONE, -5.0F, 0.0F, 5.0F)
+            .texOffs(37, 17).addBox(-1.5F, 13.69899F, 0.04628F, 4.0F, 4.0F, 3.0F, CubeDeformation.NONE, -5.0F, 20.0F, 5.0F)
+            .texOffs(32, 29).addBox(0.0F, -0.30101F, 1.04628F, 3.0F, 9.0F, 3.0F, CubeDeformation.NONE, 15.0F, 0.0F, 0.0F), 
+            PartPose.offset(2.1F, 15.69929F, 1.04628F).xRot(-7.5F * (float)(Math.PI / 180.0F)).zRot(-2.5F * (float)(Math.PI / 180.0F)));
     
         return LayerDefinition.create(meshdefinition, 64, 64);
+    }
+
+    @Override
+    public void setupAnim(LyingFigureEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float netHeadPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, netHeadPitch);
     }
 }

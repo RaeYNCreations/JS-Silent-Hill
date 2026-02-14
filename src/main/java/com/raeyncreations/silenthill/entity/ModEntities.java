@@ -121,6 +121,25 @@ public class ModEntities {
                 .clientTrackingRange(8)
                 .build("mandarindamage"));
 
+    // Pa Creaking variants
+    public static final DeferredHolder<EntityType<?>, EntityType<PaCreakingkEntity>> PA_CREAKINGK = 
+        ENTITY_TYPES.register("pa_creakingk", () -> EntityType.Builder.of(PaCreakingkEntity::new, MobCategory.MONSTER)
+                .sized(0.5f, 1.6f)
+                .clientTrackingRange(8)
+                .build("pa_creakingk"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PaCreakingk2Entity>> PA_CREAKINGK2 = 
+        ENTITY_TYPES.register("pa_creakingk2", () -> EntityType.Builder.of(PaCreakingk2Entity::new, MobCategory.MONSTER)
+                .sized(0.5f, 1.6f)
+                .clientTrackingRange(8)
+                .build("pa_creakingk2"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PaCreakingkanotherEntity>> PA_CREAKINGKANOTHER = 
+        ENTITY_TYPES.register("pa_creakingkanother", () -> EntityType.Builder.of(PaCreakingkanotherEntity::new, MobCategory.MONSTER)
+                .sized(0.5f, 1.6f)
+                .clientTrackingRange(8)
+                .build("pa_creakingkanother"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
