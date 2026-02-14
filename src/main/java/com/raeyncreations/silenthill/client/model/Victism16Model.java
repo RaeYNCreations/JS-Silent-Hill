@@ -29,18 +29,18 @@ public class Victism16Model extends HumanoidModel<Victism16Entity> {
             PartPose.offsetAndRotation(0.0F, 16.0F, 0.0F, 50.0F * (float)(Math.PI / 180.0F), 0.0F, 0.0F));
     
         PartDefinition bone2 = bone.addOrReplaceChild("bone2", CubeListBuilder.create()
-            .texOffs(24, 12).addBox(-3.5F, 12.6993F, -0.9537F, 7.0F, 4.0F, 4.0F, CubeDeformation.NONE, -12.5F, 0.0F, 0.0F), 
+            .texOffs(24, 12).addBox(-3.5F, 12.6993F, -0.9537F, 7.0F, 4.0F, 4.0F, CubeDeformation.NONE), 
             PartPose.offset(0.0F, 0.0F, 1.0F));
     
         PartDefinition leftLeg2 = bone2.addOrReplaceChild("LeftLeg2", CubeListBuilder.create()
             .texOffs(24, 56).addBox(0.0F, -0.30101F, -2.95372F, 3.0F, 2.0F, 2.0F, CubeDeformation.NONE)
-            .texOffs(0, 49).addBox(0.0F, 6.69899F, -0.95372F, 3.0F, 7.0F, 3.0F, new CubeDeformation(0.2F), -5.0F, 0.0F, 5.0F)
+            .texOffs(0, 49).addBox(0.0F, 6.69899F, -0.95372F, 3.0F, 7.0F, 3.0F, new CubeDeformation(0.2F))
             .texOffs(46, 48).addBox(0.0F, -0.30101F, -0.95372F, 3.0F, 7.0F, 3.0F, CubeDeformation.NONE), 
             PartPose.offsetAndRotation(2.1F, 13.69929F, 1.04628F, -29.9055F * (float)(Math.PI / 180.0F), -2.49762F * (float)(Math.PI / 180.0F), -4.33287F * (float)(Math.PI / 180.0F)));
     
         PartDefinition rightLeg2 = bone2.addOrReplaceChild("RightLeg2", CubeListBuilder.create()
             .texOffs(47, 18).addBox(-3.0F, -0.30101F, -0.95372F, 3.0F, 7.0F, 3.0F, CubeDeformation.NONE)
-            .texOffs(47, 7).addBox(-3.0F, 6.69899F, -0.95372F, 3.0F, 7.0F, 3.0F, new CubeDeformation(0.2F), -5.0F, 0.0F, -5.0F)
+            .texOffs(47, 7).addBox(-3.0F, 6.69899F, -0.95372F, 3.0F, 7.0F, 3.0F, new CubeDeformation(0.2F))
             .texOffs(35, 54).addBox(-3.0F, -0.30101F, -2.95372F, 3.0F, 2.0F, 2.0F, CubeDeformation.NONE), 
             PartPose.offsetAndRotation(-1.9F, 13.69929F, 1.04628F, -29.9055F * (float)(Math.PI / 180.0F), 2.49762F * (float)(Math.PI / 180.0F), 4.33287F * (float)(Math.PI / 180.0F)));
     
@@ -53,7 +53,7 @@ public class Victism16Model extends HumanoidModel<Victism16Entity> {
         PartDefinition head = body.addOrReplaceChild("head", CubeListBuilder.create()
             .texOffs(0, 0).addBox(-3.0F, 24.19929F, -2.95372F, 6.0F, 8.0F, 7.0F, new CubeDeformation(-0.3F))
             .texOffs(0, 26).addBox(-3.0F, 16.19929F, -2.95372F, 6.0F, 9.0F, 5.0F, new CubeDeformation(-0.4F))
-            .texOffs(24, 21).addBox(-3.0F, 18.19929F, 0.04628F, 6.0F, 9.0F, 5.0F, new CubeDeformation(-0.4F), 50.0F, 0.0F, 0.0F), 
+            .texOffs(24, 21).addBox(-3.0F, 18.19929F, 0.04628F, 6.0F, 9.0F, 5.0F, new CubeDeformation(-0.4F)), 
             PartPose.offsetAndRotation(0.0F, 24.69929F, 1.04628F, -47.5F * (float)(Math.PI / 180.0F), 0.0F, 0.0F));
     
         PartDefinition leftear = head.addOrReplaceChild("leftear", CubeListBuilder.create(), 
@@ -67,27 +67,27 @@ public class Victism16Model extends HumanoidModel<Victism16Entity> {
     
         PartDefinition rightArm = body.addOrReplaceChild("RightArm", CubeListBuilder.create()
             .texOffs(36, 36).addBox(-5.5F, 12.69929F, -0.95372F, 3.0F, 11.0F, 3.0F, new CubeDeformation(-0.2F))
-            .texOffs(50, 0).addBox(-5.5F, 11.19929F, -0.95372F, 3.0F, 2.0F, 3.0F, new CubeDeformation(-0.3F), 0.0F, 0.0F, -7.5F)
-            .texOffs(0, 16).addBox(-3.36092F, 12.32126F, -0.95372F, 1.0F, 1.0F, 1.0F, CubeDeformation.NONE, 17.5F, 0.0F, -25.0F), 
+            .texOffs(50, 0).addBox(-5.5F, 11.19929F, -0.95372F, 3.0F, 2.0F, 3.0F, new CubeDeformation(-0.3F))
+            .texOffs(0, 16).addBox(-3.36092F, 12.32126F, -0.95372F, 1.0F, 1.0F, 1.0F, CubeDeformation.NONE), 
             PartPose.offsetAndRotation(-4.0F, 22.69929F, 0.04628F, -55.0F * (float)(Math.PI / 180.0F), 0.0F, 15.0F * (float)(Math.PI / 180.0F)));
     
         PartDefinition leftArm = body.addOrReplaceChild("LeftArm", CubeListBuilder.create()
             .texOffs(23, 36).addBox(2.5F, 12.69929F, -0.95372F, 3.0F, 11.0F, 3.0F, new CubeDeformation(-0.2F))
-            .texOffs(49, 38).addBox(2.5F, 11.19929F, -0.95372F, 3.0F, 2.0F, 3.0F, new CubeDeformation(-0.3F), 0.0F, 0.0F, 7.5F)
-            .texOffs(0, 3).addBox(2.36092F, 12.32126F, -0.95372F, 1.0F, 1.0F, 1.0F, CubeDeformation.NONE, 17.5F, 0.0F, 25.0F), 
+            .texOffs(49, 38).addBox(2.5F, 11.19929F, -0.95372F, 3.0F, 2.0F, 3.0F, new CubeDeformation(-0.3F))
+            .texOffs(0, 3).addBox(2.36092F, 12.32126F, -0.95372F, 1.0F, 1.0F, 1.0F, CubeDeformation.NONE), 
             PartPose.offsetAndRotation(4.0F, 22.69929F, 0.04628F, -55.0F * (float)(Math.PI / 180.0F), 0.0F, -15.0F * (float)(Math.PI / 180.0F)));
     
         PartDefinition booba = body.addOrReplaceChild("Booba", CubeListBuilder.create(), 
             PartPose.offsetAndRotation(0.0F, 21.69929F, 0.04628F, -17.5F * (float)(Math.PI / 180.0F), 0.0F, 0.0F));
     
         PartDefinition booba2 = booba.addOrReplaceChild("Booba2", CubeListBuilder.create()
-            .texOffs(13, 49).addBox(-3.5F, 19.80299F, -2.0F, 3.0F, 5.0F, 3.07107F, CubeDeformation.NONE, -52.15648F, 6.19617F, -7.66905F)
-            .texOffs(0, 0).addBox(-0.5F, 19.80299F, -1.3F, 1.0F, 0.0F, 2.07107F, CubeDeformation.NONE, -52.58061F, 0.0F, 0.25805F)
-            .texOffs(47, 29).addBox(0.5F, 19.80299F, -2.0F, 3.0F, 5.0F, 3.07107F, CubeDeformation.NONE, -52.15648F, -6.19617F, 7.66905F), 
+            .texOffs(13, 49).addBox(-3.5F, 19.80299F, -2.0F, 3.0F, 5.0F, 3.07107F, CubeDeformation.NONE)
+            .texOffs(0, 0).addBox(-0.5F, 19.80299F, -1.3F, 1.0F, 0.0F, 2.07107F, CubeDeformation.NONE)
+            .texOffs(47, 29).addBox(0.5F, 19.80299F, -2.0F, 3.0F, 5.0F, 3.07107F, CubeDeformation.NONE), 
             PartPose.offsetAndRotation(0.0F, 21.69929F, 3.04628F, -2.5F * (float)(Math.PI / 180.0F), 0.0F, 0.0F));
     
         PartDefinition saia = bone2.addOrReplaceChild("Saia", CubeListBuilder.create()
-            .texOffs(0, 16).addBox(-4.5F, 11.19929F, -1.45372F, 9.0F, 4.0F, 5.0F, new CubeDeformation(-0.2F), 2.5F, 0.0F, 0.0F), 
+            .texOffs(0, 16).addBox(-4.5F, 11.19929F, -1.45372F, 9.0F, 4.0F, 5.0F, new CubeDeformation(-0.2F)), 
             PartPose.offsetAndRotation(0.0F, 14.69929F, 2.04628F, -17.5F * (float)(Math.PI / 180.0F), 0.0F, 0.0F));
     
         return LayerDefinition.create(meshdefinition, 64, 64);
