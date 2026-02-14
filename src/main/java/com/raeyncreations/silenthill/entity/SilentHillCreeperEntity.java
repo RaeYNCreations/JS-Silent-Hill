@@ -37,9 +37,4 @@ public class SilentHillCreeperEntity extends Creeper {
                 .add(Attributes.MAX_HEALTH, 10.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.16D);
     }
-
-    @Override
-    public boolean canBreatheUnderwater() {
-        return true;
-    }
 }

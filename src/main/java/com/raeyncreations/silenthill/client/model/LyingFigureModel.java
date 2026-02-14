@@ -57,14 +57,14 @@ public class LyingFigureModel extends HumanoidModel<LyingFigureEntity> {
             .texOffs(18, 29).addBox(-3.0F, 8.69899F, -0.95372F, 3.0F, 7.0F, 4.0F, CubeDeformation.NONE)
             .texOffs(22, 41).addBox(-2.5F, 13.69899F, 0.04628F, 4.0F, 4.0F, 3.0F, CubeDeformation.NONE)
             .texOffs(44, 45).addBox(-3.0F, -0.30101F, -0.95372F, 3.0F, 3.0F, 2.0F, CubeDeformation.NONE), 
-            PartPose.offset(-1.9F, 15.69929F, 1.04628F).xRot(-7.5F * (float)(Math.PI / 180.0F)).zRot(-2.5F * (float)(Math.PI / 180.0F)));
+            PartPose.offsetAndRotation(-1.9F, 15.69929F, 1.04628F, -7.5F * (float)(Math.PI / 180.0F), 0.0F, -2.5F * (float)(Math.PI / 180.0F)));
     
         PartDefinition leftLeg2 = bone.addOrReplaceChild("LeftLeg2", CubeListBuilder.create()
             .texOffs(44, 34).addBox(0.0F, -0.30101F, -0.95372F, 3.0F, 3.0F, 2.0F, CubeDeformation.NONE)
             .texOffs(26, 9).addBox(0.0F, 8.69899F, -0.95372F, 3.0F, 7.0F, 4.0F, CubeDeformation.NONE)
             .texOffs(37, 17).addBox(-1.5F, 13.69899F, 0.04628F, 4.0F, 4.0F, 3.0F, CubeDeformation.NONE)
             .texOffs(32, 29).addBox(0.0F, -0.30101F, 1.04628F, 3.0F, 9.0F, 3.0F, CubeDeformation.NONE), 
-            PartPose.offset(2.1F, 15.69929F, 1.04628F).xRot(-7.5F * (float)(Math.PI / 180.0F)).zRot(-2.5F * (float)(Math.PI / 180.0F)));
+            PartPose.offsetAndRotation(2.1F, 15.69929F, 1.04628F, -7.5F * (float)(Math.PI / 180.0F), 0.0F, -2.5F * (float)(Math.PI / 180.0F)));
     
         return LayerDefinition.create(meshdefinition, 64, 64);
     }

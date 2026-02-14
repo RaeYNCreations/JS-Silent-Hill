@@ -73,24 +73,15 @@ public class ScaleableModelPart {
      */
     public void render(PoseStack poseStack, VertexConsumer vertexConsumer, 
                       int packedLight, int packedOverlay) {
-        render(poseStack, vertexConsumer, packedLight, packedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
-    }
-    
-    /**
-     * Render with color multiplier.
-     */
-    public void render(PoseStack poseStack, VertexConsumer vertexConsumer, 
-                      int packedLight, int packedOverlay, 
-                      float red, float green, float blue, float alpha) {
         // Apply scale transform
         if (scaleX != 1.0F || scaleY != 1.0F || scaleZ != 1.0F) {
             poseStack.pushPose();
             poseStack.scale(scaleX, scaleY, scaleZ);
-            modelPart.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+            modelPart.render(poseStack, vertexConsumer, packedLight, packedOverlay);
             poseStack.popPose();
         } else {
             // No scale, render normally
-            modelPart.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+            modelPart.render(poseStack, vertexConsumer, packedLight, packedOverlay);
         }
     }
     

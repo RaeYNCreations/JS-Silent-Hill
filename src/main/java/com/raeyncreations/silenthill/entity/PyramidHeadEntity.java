@@ -65,9 +65,4 @@ public class PyramidHeadEntity extends Monster {
     public boolean fireImmune() {
         return true;
     }
-
-    @Override
-    public boolean canBreatheUnderwater() {
-        return true;
-    }
 }
