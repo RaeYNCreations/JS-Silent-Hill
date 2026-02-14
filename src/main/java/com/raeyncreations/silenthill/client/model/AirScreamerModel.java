@@ -25,11 +25,11 @@ public class AirScreamerModel extends HumanoidModel<AirScreamerEntity> {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
     
-        PartDefinition bone = partdefinition.addOrReplaceChild("bone", CubeListBuilder.create(), PartPose.offset(0.0F, 16.0F, 0.0F).rotation(82.5F, 0.0F, 0.0F));
+        PartDefinition bone = partdefinition.addOrReplaceChild("bone", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 16.0F, 0.0F, 82.5F * (float)(Math.PI / 180.0F), 0.0F, 0.0F));
     
         PartDefinition head = bone.addOrReplaceChild("Head", CubeListBuilder.create()
             .texOffs(38, 35).addBox(-3.5F, 11.6993F, -0.9537F, 7.0F, 4.0F, 4.0F, CubeDeformation.NONE)
-            .texOffs(0, 0).addBox(-1.5F, 7.6993F, -0.9537F, 3.0F, 4.0F, 2.0F, CubeDeformation.NONE), PartPose.offset(0.0F, 20.0F, -1.0F).rotation(-37.5F, 0.0F, 0.0F));
+            .texOffs(0, 0).addBox(-1.5F, 7.6993F, -0.9537F, 3.0F, 4.0F, 2.0F, CubeDeformation.NONE), PartPose.offsetAndRotation(0.0F, 20.0F, -1.0F, -37.5F * (float)(Math.PI / 180.0F), 0.0F, 0.0F));
     
         PartDefinition leftleg2 = head.addOrReplaceChild("LeftLeg2", CubeListBuilder.create()
             .texOffs(25, 13).addBox(2.0F, -1.301F, -1.9537F, 1.0F, 2.0F, 1.0F)

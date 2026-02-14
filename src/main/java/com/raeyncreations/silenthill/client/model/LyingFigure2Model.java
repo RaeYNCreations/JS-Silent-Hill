@@ -25,7 +25,7 @@ public class LyingFigure2Model extends HumanoidModel<LyingFigure2Entity> {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
     
-        PartDefinition bone = partdefinition.addOrReplaceChild("bone", CubeListBuilder.create(), PartPose.offset(0.0F, 2.0F, -2.0F).rotation(90.0F, 0.0F, 0.0F));
+        PartDefinition bone = partdefinition.addOrReplaceChild("bone", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 2.0F, -2.0F, 90.0F * (float)(Math.PI / 180.0F), 0.0F, 0.0F));
     
         PartDefinition bone2 = bone.addOrReplaceChild("bone2", CubeListBuilder.create()
             .texOffs(18, 21).addBox(-3.5F, -2.3007F, -2.9537F, 7.0F, 4.0F, 4.0F, CubeDeformation.NONE)
