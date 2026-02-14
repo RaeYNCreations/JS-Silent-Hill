@@ -47,17 +47,20 @@ public class PaCreakingkanotherEntity extends Monster {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.MANNEQUIN_IDLE.get();
+        // Using mannequin sounds as placeholder until dedicated sounds are added
+        return ModSounds.MANNEQUIN_IDLE != null ? ModSounds.MANNEQUIN_IDLE.get() : null;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return ModSounds.MANNEQUIN_HURT.get();
+        // Using mannequin sounds as placeholder until dedicated sounds are added
+        return ModSounds.MANNEQUIN_HURT != null ? ModSounds.MANNEQUIN_HURT.get() : null;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.MANNEQUIN_DEATH.get();
+        // Using mannequin sounds as placeholder until dedicated sounds are added
+        return ModSounds.MANNEQUIN_DEATH != null ? ModSounds.MANNEQUIN_DEATH.get() : null;
     }
 
     @Override
