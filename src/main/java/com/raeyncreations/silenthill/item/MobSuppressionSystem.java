@@ -167,7 +167,9 @@ public class MobSuppressionSystem {
         if (!(event.getLevel() instanceof ServerLevel level)) return;
         
         BlockPos pos = event.getPos();
-        if (level.getBlockState(pos).is(ModBlocks.SAFE_HAVEN_OBELISK.get())) {
+        // Null-safe check for registry block
+        if (ModBlocks.SAFE_HAVEN_OBELISK != null && ModBlocks.SAFE_HAVEN_OBELISK.get() != null 
+            && level.getBlockState(pos).is(ModBlocks.SAFE_HAVEN_OBELISK.get())) {
             // Check if this was a suppressor
             Map<BlockPos, Integer> levelSuppressors = suppressors.get(level);
             if (levelSuppressors != null && levelSuppressors.containsKey(pos)) {
@@ -257,6 +259,11 @@ public class MobSuppressionSystem {
      * Validate that all suppressor obelisks still exist
      */
     private static void validateSuppressors(ServerTickEvent.Post event) {
+        // Null-safe check for registry block
+        if (ModBlocks.SAFE_HAVEN_OBELISK == null || ModBlocks.SAFE_HAVEN_OBELISK.get() == null) {
+            return;
+        }
+        
         for (ServerLevel level : event.getServer().getAllLevels()) {
             Map<BlockPos, Integer> levelSuppressors = suppressors.get(level);
             if (levelSuppressors == null || levelSuppressors.isEmpty()) continue;
