@@ -137,9 +137,9 @@ public class BedrockAnimationParser {
                     } else if (valueElement.isJsonObject()) {
                         // Handle pre/post keyframe data (use "post" if available)
                         JsonObject keyframeObj = valueElement.getAsJsonObject();
-                        if (keyframeObj.has("post")) {
+                        if (keyframeObj.has("post") && keyframeObj.get("post").isJsonArray()) {
                             values = parseVector(keyframeObj.getAsJsonArray("post"));
-                        } else if (keyframeObj.has("pre")) {
+                        } else if (keyframeObj.has("pre") && keyframeObj.get("pre").isJsonArray()) {
                             values = parseVector(keyframeObj.getAsJsonArray("pre"));
                         } else {
                             continue;
