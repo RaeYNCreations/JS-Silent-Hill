@@ -5,47 +5,45 @@ buildscript {
         maven { url = 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
-        classpath 'net.neoforged.gradle:userdev:7.0.80'  // Revert to this
+        classpath 'net.neoforged.gradle:userdev:7.0.184'  // Updated to latest
     }
 }
 
-apply plugin: 'net.neoforged.gradle.userdev'
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
+plugins {
+    id 'net.neoforged.moddev' version '2.0.140'
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
 
 version = '3.0.0'
 group = 'com.raeyncreations.jssilenthill'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 base {
     archivesName = 'silenthill'
 }
 
-minecraft {
-    mappings channel: 'official', version: '1.21.1'
+neoForge {
+    version = "${neo_version}"
     
     runs {
         client {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            mods {
-                silenthill {
-                    source sourceSets.main
-                }
-            }
+            client()
         }
         server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            mods {
-                silenthill {
-                    source sourceSets.main
-                }
-            }
+            server()
+        }
+    }
+    
+    mods {
+        silenthill {
+            sourceSet sourceSets.main
         }
     }
 }
@@ -56,8 +54,6 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.neoforged:neoforge:21.1.73'  // Revert to this
-    
     // JUnit 5 for unit testing
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
@@ -83,4 +79,11 @@ jar {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
+    // Enable Java preview features
+    options.compilerArgs.add('--enable-preview')
+}
+
+tasks.withType(Test).configureEach {
+    // Enable previews for test execution if needed
+    jvmArgs += ['--enable-preview']
 }
